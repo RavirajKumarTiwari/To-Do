@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-font: "Figtree", sans-serif;
+    --color-body: #e8f3f8;
+    --global-transition: all 0.2s ease-in-out;
+}
+html {
+    font-size: 18px;
+}
+
+body {
+    background-color: var(--color-body);
+    margin: 1.5rem;
+}
+
+.container {
+    max-width: 700px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+#todo-form {
+    position: relative;
+    display: grid;
+}
+
+@media screen and (min-width: 600px) {
+    #todo-form {
+        display: flex;
+        grid-template-columns: 2fr 1fr;
+        grid-column-gap: 5px;
+    }
+}
+
+#todo-form input,
+#todo-form button {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+/* #todo-form input,
+#todo-form button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+#todo-form button {
+    color: rgb(250, 246, 246);
+    background-color: #f96916;
+    text-transform: uppercase;
+    font-size: large;
+}
+
+/* fix the margin and padding */
+.container .stats {
+    padding: 5px 10px;
+    margin: 10px 0;
+    color: white;
+    background-color: rgb(1, 65, 121);
+    border-radius: 4px;
+    list-style: none;
+    text-align: center;
+}
+
+/* fix this */
+@media screen and (min-width: 600px) {
+    .container .stats {
+        /* padding: 5px 12px;
+        margin: 12px 0; */
+        display: flex;
+        justify-content: space-between;
+        /* grid-template-columns: 2fr 1fr; */
+        /* grid-column-gap: 5px; */
+    }
+}
+
+.todos {
+    margin-bottom: 4rem;
+}
+
+.todos li {
+    background-color: rgb(214, 229, 250);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 1.5rem 1rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: auto 20px;
+    grid-column-gap: 10px;
+    padding: 0 10px;
+}
+
+.todos li div{
+    display: flex;
+    align-items: baseline;
+}
+
+.todos li div span{
+    margin: 5px;
+}
+
+.todo-list{
+    display: flex;
+    align-items: baseline;
+}
+
+.todo li div {
+    display: flex;
+    align-items: baseline;
+    row-gap: 0.75rem;
+}
+
+.todos li.complete {
+    background-color: rgb(110, 140, 160);
+    text-decoration: line-through;
+    color: rgb(5, 59, 109);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid rgb(22, 10, 63);
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+    transition: var(--global-transition);
+}
+
+input[type="checkbox"]::before {
+    content: "✔";
+    /* content: url(); */
+    transform: scale(0);
+    transition: var(--global-transition);
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgb(110, 140, 160);
+    border-color: rgb(110, 140, 160);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.todos li button {
+    border: 0;
+    padding: 0.25rem;
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+}
+
+/* 24:26 */
+.todos li button img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.todos li button img:hover {
+    transition: var(--global-transition);
+}
+
+.todos li button:active img {
+    transform: scale(8);
+}
+
+.todos li span {
+    padding: 2px;
+    border-radius: 4px;
+    transition: var(--global-transition);
+}
+
+.todos li span:focus {
+    background-color: var(--color-body);
+    outline: none;
+}
+
+.todos li span[contenteditable]:hover {
+    background-color: var(--color-body);
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
