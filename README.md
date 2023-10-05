@@ -11,7 +11,7 @@ Features
 
 ## Usage
 
-To use the To-Do App, simply open the `HTML` file in a web browser. You can then start adding tasks by typing them into the text box at the top of the page and clicking the "Add Task" button.
+To use the To-Do App, [Click Here](https://ravirajkumartiwari.github.io/To-Do/) or simply open the `HTML` file in a web browser. You can then start adding tasks by typing them into the text box at the top of the page and clicking the "Add Task" button.
 
 To edit a task, simply click on the task name. You can then make your changes and click the "Save Task" button to save your changes.
 
