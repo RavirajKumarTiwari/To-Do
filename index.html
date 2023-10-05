@@ -4,12 +4,23 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>To-Do App</title>
+        <link rel="icon" type="image/x-icon" href="#" />
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
         <header id="main-header">
             <div class="container">
-                <h1>To-Do</h1>
+                <div class="title">
+                    <h1>To-Do</h1>
+                    <button id="dark" onclick="darkMode()">
+                        <img
+                            width="50"
+                            height="50"
+                            src="https://img.icons8.com/ios/50/day-and-night.png"
+                            alt="day-and-night"
+                        />
+                </div>
+                </button>
                 <form action="" id="todo-form">
                     <input
                         type="text"
@@ -39,15 +50,13 @@
                     </li>
                 </ul>
 
-                <ul class="todos">
-                </ul>
+                <ul class="todos"></ul>
             </div>
         </section>
 
         <footer>
             <div class="container">
                 <p>Desined by Raviraj Tiwari</p>
-                <button id="dark" onclick="darkMode()">dark</button>
             </div>
         </footer>
 

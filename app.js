@@ -15,11 +15,11 @@ if (localStorage.getItem("tasks")) {
     });
 }
 
-if (localStorage.getItem("tasks")) {
-    tasks.map((task) => {
-        createTask(task);
-    });
-}
+// if (localStorage.getItem("tasks")) {
+//     tasks.map((task) => {
+//         createTask(task);
+//     });
+// }
 
 // submit form
 todoForm.addEventListener("submit", (e) => {
@@ -37,12 +37,10 @@ todoForm.addEventListener("submit", (e) => {
         isCompleted: false,
     };
 
-    console.log(task); // testing
-
     //save that task into local storage of browser
     tasks.push(task); // push each task obj into tasks array
     // local storage only supports strings so we need to convert tasks array into string
-    localStorage.setItem("task", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     createTask(task);
 
@@ -52,6 +50,8 @@ todoForm.addEventListener("submit", (e) => {
 
 // For removing the task
 todoList.addEventListener("click", (e) => {
+/* This code block is checking if the clicked element or its parent elements contain the class
+"remove-task". If any of them do, it means that the user clicked on the remove task button. */
     if (
         e.target.classList.contains("remove-task") ||
         e.target.parentElement.classList.contains("remove-task") ||
@@ -88,11 +88,17 @@ function createTask(task) {
 
     const taskElMarkup = `
         <div>
-            <input type="checkbox" name="tasks" id="${task.id}" ${task.isCompleted ? "checked" : ""}>
-            <span ${!task.isCompleted ? "contenteditable" : ""}>${task.name}</span>
+            <input type="checkbox" name="tasks" id="${task.id}" ${
+        task.isCompleted ? "checked" : ""
+    }>
+            <span ${!task.isCompleted ? "contenteditable" : ""}>${
+        task.name
+    }</span>
         </div>
         <button title="Remove the "${task.name}" task" class="remove-task">
-            add delete icon
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 16 16">
+                <path d="M 2.75 2.042969 L 2.042969 2.75 L 2.398438 3.101563 L 7.292969 8 L 2.042969 13.25 L 2.75 13.957031 L 8 8.707031 L 12.894531 13.605469 L 13.25 13.957031 L 13.957031 13.25 L 13.605469 12.894531 L 8.707031 8 L 13.957031 2.75 L 13.25 2.042969 L 8 7.292969 L 3.101563 2.398438 Z"></path>
+            </svg>
         </button>
     `;
 
@@ -116,11 +122,11 @@ function countTasks() {
 function removeTask(taskId) {
     tasks = tasks.filter((task) => task.id !== parseInt(taskId));
 
-    // Update the local storage
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-
     // Remove the task from the page or DOM
     document.getElementById(taskId).remove();
+
+    // Update the local storage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     // Recount the tasks
     countTasks();
